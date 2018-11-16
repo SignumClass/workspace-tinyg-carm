@@ -652,7 +652,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinygcarm", ["chilipeppr_ready"], func
             
             // Laser Solder
             // com-chilipeppr-ws-jscut
-            /*
+            
             chilipeppr.load(
                 "#com-chilipeppr-ws-lasersolder",
                 "http://fiddle.jshell.net/chilipeppr/xuu785yz/show/light/",
@@ -680,7 +680,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinygcarm", ["chilipeppr_ready"], func
                         });
                     });
                 }); //End Laser Solder
-                */
+                
 
             // Eagle BRD Import
             // com-chilipeppr-widget-eagle
@@ -1388,7 +1388,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinygcarm", ["chilipeppr_ready"], func
 
             /* For testing. Load RPM Sensor */
             // com-chilipeppr-ws-rpmsensor
-            /*
+            
             chilipeppr.load(
               "#com-chilipeppr-ws-rpmsensor",
               "http://raw.githubusercontent.com/chilipeppr/widget-rpmsensor/master/auto-generated-widget.html",
@@ -1405,7 +1405,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinygcarm", ["chilipeppr_ready"], func
                 );
               }
             );
-            */
+            
 
         },
         //end loadWidgets
