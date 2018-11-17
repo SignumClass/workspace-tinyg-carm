@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
-    <title>Workspace / TinyG Carm</title>
+    <title>Workspace / TinyG</title>
 
     <!-- ChiliPeppr is based on bootstrap CSS. -->
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -222,7 +222,7 @@ body.hover {
     <script type='text/javascript'>
     //<![CDATA[
 /* global cpdefine chilipeppr cprequire */
-cprequire_test(["inline:com-chilipeppr-workspace-tinyg-carm"], function(ws) {
+cprequire_test(["inline:com-chilipeppr-workspace-tinyg"], function(ws) {
 
     console.log("initting workspace");
 
@@ -250,19 +250,19 @@ cprequire_test(["inline:com-chilipeppr-workspace-tinyg-carm"], function(ws) {
     ws.init();
 
     // Do some niceties for testing like margins on widget and title for browser
-    $('title').html("Tinyg Workspace Carm");
+    $('title').html("Tinyg Workspace");
     $('body').css('padding', '10px');
 
 } /*end_test*/ );
 
 // This is the main definition of your widget. Give it a unique name.
-cpdefine("inline:com-chilipeppr-workspace-tinyg-carm", ["chilipeppr_ready"], function() {
+cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function() {
     return {
         /**
          * The ID of the widget. You must define this and make it unique.
          */
-        id: "com-chilipeppr-workspace-tinyg-carm2", // Make the id the same as the cpdefine id
-        name: "Workspace / TinyG Carm", // The descriptive name of your widget.
+        id: "com-chilipeppr-workspace-tinyg", // Make the id the same as the cpdefine id
+        name: "Workspace / TinyG", // The descriptive name of your widget.
         desc: `This is a workspace for ChiliPeppr's Hardware Fiddle. It is geared towards CNC machines using TinyG.`,
         url: "http://raw.githubusercontent.com/SignumClass/workspace-tinyg-carm/master/auto-generated-workspace.html", // The final URL of the working widget as a single HTML file with CSS and Javascript inlined. You can let runme.js auto fill this if you are using Cloud9.
         fiddleurl: "http://ide.c9.io/signumclass/workspace-tinyg-carm", // The edit URL. This can be auto-filled by runme.js in Cloud9 if you'd like, or just define it on your own to help people know where they can edit/fork your widget
@@ -815,45 +815,6 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg-carm", ["chilipeppr_ready"], fun
                 }); //End Auto-Leveller
 
 
-
-            // Inject new div to contain widget or use an existing div with an ID
-            //$("body").append('<' + 'div id="com-chilipeppr-ws-imagestitch"><' + '/div>');
-            
-            chilipeppr.load(
-                "#com-chilipeppr-ws-imagestitch",
-                "http://raw.githubusercontent.com/SignumClass/widget-imagestitch/master/auto-generated-widget.html",
-                function() {
-                    // Callback after widget loaded into #myDivWidgetAutolevel
-                    // Now use require.js to get reference to instantiated widget
-                    require(
-                        ["inline:com-chilipeppr-widget-imagestitch"], // the id you gave your widget
-                        function(imagestitch) {
-                            // Callback that is passed reference to the newly loaded widget
-                            
-                            imagestitch.init();
-                            console.log("Widget / Image Stitch just got loaded.", imagestitch);
-                        // setup toggle button
-                        var isBtn = $('#com-chilipeppr-ws-menu .imagestitch-button');
-                        var isDiv = $('#com-chilipeppr-ws-imagestitch');
-                        isBtn.click(function() {
-                            if (isDiv.hasClass("hidden")) {
-                                // unhide
-                                isDiv.removeClass("hidden");
-                                isBtn.addClass("active");
-                                imagestitch.onDisplay();
-                            }
-                            else {
-                                isDiv.addClass("hidden");
-                                isBtn.removeClass("active");
-                                imagestitch.onUndisplay();
-                            }
-                            $(window).trigger('resize');
-
-                        });
-                    });
-                });
-    
-
             // Macro
             // com-chilipeppr-ws-macro
             chilipeppr.load(
@@ -914,7 +875,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg-carm", ["chilipeppr_ready"], fun
             
             // Laser Solder
             // com-chilipeppr-ws-jscut
-            
+            /*
             chilipeppr.load(
                 "#com-chilipeppr-ws-lasersolder",
                 "http://fiddle.jshell.net/chilipeppr/xuu785yz/show/light/",
@@ -942,7 +903,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg-carm", ["chilipeppr_ready"], fun
                         });
                     });
                 }); //End Laser Solder
-                
+                */
 
             // Eagle BRD Import
             // com-chilipeppr-widget-eagle
@@ -1650,7 +1611,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg-carm", ["chilipeppr_ready"], fun
 
             /* For testing. Load RPM Sensor */
             // com-chilipeppr-ws-rpmsensor
-            
+            /*
             chilipeppr.load(
               "#com-chilipeppr-ws-rpmsensor",
               "http://raw.githubusercontent.com/chilipeppr/widget-rpmsensor/master/auto-generated-widget.html",
@@ -1667,12 +1628,12 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg-carm", ["chilipeppr_ready"], fun
                 );
               }
             );
-            
+            */
 
         },
         //end loadWidgets
 
-    };
+    }
 });
     //]]>
     </script>
@@ -1684,7 +1645,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg-carm", ["chilipeppr_ready"], fun
     <div id="com-chilipeppr-widget-flash-instance"></div>
     <!--not sure which version to keep-->
 
-    <div id="com-chilipeppr-workspace-tinyg-carm2" class="xhidden">
+    <div id="com-chilipeppr-workspace-tinyg" class="xhidden">
         <div id="com-chilipeppr-ws-gcode-wrapper" class="dropArea">
             <div id="com-chilipeppr-ws-gcode-dragdropoverlay" class="hidden">
                 <div class="well">Drag and Drop Gcode Files Onto Browser Window</div>
@@ -1697,7 +1658,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg-carm", ["chilipeppr_ready"], fun
                         <!-- Workspace Hdr -->
                         <div id="com-chilipeppr-ws-gcode-hdr" class="com-chilipeppr-ws-hdr zhigh well">
                             
-                            <span class="workspace-title">Workspace TinyG Carm</span>
+                            <span class="workspace-title">Workspace TinyG</span>
                             
                             <div id="com-chilipeppr-ws-menu" class="">
                                 
@@ -1735,11 +1696,9 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg-carm", ["chilipeppr_ready"], fun
                                     <li><button type="button" class="btn-ws btn btn-xs btn-default zipwhip-recvtext-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Login to Zipwhip to receive texts and start a CNC job when the text is received." data-trigger="hover" data-delay="100"><span class="zipwhip"></span>Recv Text to Trigger</button></li>
                                     <li><button type="button" class="btn-ws btn btn-xs btn-default autolevel-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Allows you to auto-level your PCB before milling. Most raw PCB boards have a slight warpage. This widget lets you probe the warpage and then it auto-scales your Gcode to match the warpage so you get very clean/predictable z-positions in your milling job."
                                     data-trigger="hover" data-delay="100">Auto-Level</button></li>
-                                    <li><button type="button" class="btn-ws btn btn-xs btn-default imagestitch-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Allows you to auto-level your PCB before milling. Most raw PCB boards have a slight warpage. This widget lets you probe the warpage and then it auto-scales your Gcode to match the warpage so you get very clean/predictable z-positions in your milling job."
-                                    data-trigger="hover" data-delay="100">Image Stitch</button></li>
                                     <li><button type="button" class="btn-ws btn btn-xs btn-default macro-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Run a macro." data-trigger="hover" data-delay="100">Macro</button></li>
                                     <li><button type="button" class="btn-ws btn btn-xs btn-default jscut-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Load file from JSCut" data-trigger="hover" data-delay="100">JScut</button></li>
-                                    <li><button type="button" class="btn-ws btn btn-xs btn-default lasersolder-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Laser Solderer" data-trigger="hover" data-delay="100">Laser Solder</button></li>
+                                    <!--<li><button type="button" class="btn-ws btn btn-xs btn-default lasersolder-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Laser Solderer" data-trigger="hover" data-delay="100">Laser Solder</button></li>-->
                                     <li><button type="button" class="btn-ws btn btn-xs btn-default eagle-button" data-container="body" data-toggle="popover" data-placement="auto" xdata-content="Laser Solderer" data-trigger="hover" data-delay="100">Eagle BRD Import</button></li>
                                     <li><button type="button" class="btn-ws btn btn-xs btn-default gpio-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="GPIO Server by Ben Delarre. Allows you to control your GPIO ports on a Raspberry Pi or Beagle Bone Black to toggle on/off hardware components. For example, you could toggle a fan on/off via GPIO."
                                     data-trigger="hover" data-delay="100">GPIO</button></li>
@@ -1784,9 +1743,6 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg-carm", ["chilipeppr_ready"], fun
                         <!-- Auto Leveller -->
                         <div class="zhigh hidden" id="com-chilipeppr-ws-autolevel">Auto-Level Here</div>
 
-                        <!-- Image Stitch -->
-                        <div class="zhigh hidden" id="com-chilipeppr-ws-imagestitch">Image Stitch Here</div>
-
                         <!-- Macro -->
                         <div class="zhigh hidden" id="com-chilipeppr-ws-macro">Macro Here</div>
 
@@ -1813,7 +1769,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg-carm", ["chilipeppr_ready"], fun
 
                         <!-- Arduino / Atmel Firmware Programmer -->
                         <div class="zhigh xhidden" id="com-chilipeppr-ws-programmer">Arduino / Atmel Firmware Programmer Here</div>
-                        
+
                         <!-- Gcode List -->
                         <div id="com-chilipeppr-gcode-list" class="zhigh">Load Gcode List Here</div>
                         <!-- Serial In/Out Text Log-->
@@ -1858,7 +1814,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg-carm", ["chilipeppr_ready"], fun
 
             </p>
             <div class="billboard-imgcontain" style="">
-                <a href="http://chilipeppr.com/tinyg-carm">
+                <a href="http://chilipeppr.com/tinyg">
                     <div class="billboard-img" style="background-image: url('https://i2dcui.appspot.com/img/tinyg.jpg')" />
                 </a>
                 <div class="billboard-stats2">

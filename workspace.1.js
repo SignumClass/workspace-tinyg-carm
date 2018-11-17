@@ -1,5 +1,5 @@
 /* global cpdefine chilipeppr cprequire */
-cprequire_test(["inline:com-chilipeppr-workspace-tinyg"], function(ws) {
+cprequire_test(["inline:com-chilipeppr-workspace-tinyg-carm"], function(ws) {
 
     console.log("initting workspace");
 
@@ -27,19 +27,19 @@ cprequire_test(["inline:com-chilipeppr-workspace-tinyg"], function(ws) {
     ws.init();
 
     // Do some niceties for testing like margins on widget and title for browser
-    $('title').html("Tinyg Workspace");
+    $('title').html("Tinyg Workspace Carm");
     $('body').css('padding', '10px');
 
 } /*end_test*/ );
 
 // This is the main definition of your widget. Give it a unique name.
-cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function() {
+cpdefine("inline:com-chilipeppr-workspace-tinyg-carm", ["chilipeppr_ready"], function() {
     return {
         /**
          * The ID of the widget. You must define this and make it unique.
          */
-        id: "com-chilipeppr-workspace-tinyg", // Make the id the same as the cpdefine id
-        name: "Workspace / TinyG", // The descriptive name of your widget.
+        id: "com-chilipeppr-workspace-tinyg-carm2", // Make the id the same as the cpdefine id
+        name: "Workspace / TinyG Carm", // The descriptive name of your widget.
         desc: `This is a workspace for ChiliPeppr's Hardware Fiddle. It is geared towards CNC machines using TinyG.`,
         url: "(auto fill by runme.js)", // The final URL of the working widget as a single HTML file with CSS and Javascript inlined. You can let runme.js auto fill this if you are using Cloud9.
         fiddleurl: "(auto fill by runme.js)", // The edit URL. This can be auto-filled by runme.js in Cloud9 if you'd like, or just define it on your own to help people know where they can edit/fork your widget
@@ -592,6 +592,45 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                 }); //End Auto-Leveller
 
 
+
+            // Inject new div to contain widget or use an existing div with an ID
+            //$("body").append('<' + 'div id="com-chilipeppr-ws-imagestitch"><' + '/div>');
+            
+            chilipeppr.load(
+                "#com-chilipeppr-ws-imagestitch",
+                "http://raw.githubusercontent.com/SignumClass/widget-imagestitch/master/auto-generated-widget.html",
+                function() {
+                    // Callback after widget loaded into #myDivWidgetAutolevel
+                    // Now use require.js to get reference to instantiated widget
+                    require(
+                        ["inline:com-chilipeppr-widget-imagestitch"], // the id you gave your widget
+                        function(imagestitch) {
+                            // Callback that is passed reference to the newly loaded widget
+                            
+                            imagestitch.init();
+                            console.log("Widget / Image Stitch just got loaded.", imagestitch);
+                        // setup toggle button
+                        var isBtn = $('#com-chilipeppr-ws-menu .imagestitch-button');
+                        var isDiv = $('#com-chilipeppr-ws-imagestitch');
+                        isBtn.click(function() {
+                            if (isDiv.hasClass("hidden")) {
+                                // unhide
+                                isDiv.removeClass("hidden");
+                                isBtn.addClass("active");
+                                imagestitch.onDisplay();
+                            }
+                            else {
+                                isDiv.addClass("hidden");
+                                isBtn.removeClass("active");
+                                imagestitch.onUndisplay();
+                            }
+                            $(window).trigger('resize');
+
+                        });
+                    });
+                });
+    
+
             // Macro
             // com-chilipeppr-ws-macro
             chilipeppr.load(
@@ -652,7 +691,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
             
             // Laser Solder
             // com-chilipeppr-ws-jscut
-            /*
+            
             chilipeppr.load(
                 "#com-chilipeppr-ws-lasersolder",
                 "http://fiddle.jshell.net/chilipeppr/xuu785yz/show/light/",
@@ -680,7 +719,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                         });
                     });
                 }); //End Laser Solder
-                */
+                
 
             // Eagle BRD Import
             // com-chilipeppr-widget-eagle
@@ -1388,7 +1427,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
 
             /* For testing. Load RPM Sensor */
             // com-chilipeppr-ws-rpmsensor
-            /*
+            
             chilipeppr.load(
               "#com-chilipeppr-ws-rpmsensor",
               "http://raw.githubusercontent.com/chilipeppr/widget-rpmsensor/master/auto-generated-widget.html",
@@ -1405,10 +1444,10 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                 );
               }
             );
-            */
+            
 
         },
         //end loadWidgets
 
-    }
+    };
 });
