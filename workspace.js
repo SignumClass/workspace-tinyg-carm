@@ -1449,5 +1449,5 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg-carm", ["chilipeppr_ready"], fun
         },
         //end loadWidgets
 
-    }
+    };
 });
