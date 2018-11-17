@@ -597,7 +597,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
             //$("body").append('<' + 'div id="myDivWidgetAutolevel"><' + '/div>');
             
             chilipeppr.load(
-                "#myDivWidgetAutolevel",
+                "#com-chilipeppr-ws-autolevel",
                 "http://raw.githubusercontent.com/SignumClass/widget-autolevel/master/auto-generated-widget.html",
                 function() {
                     // Callback after widget loaded into #myDivWidgetAutolevel
