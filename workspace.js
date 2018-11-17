@@ -594,7 +594,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
 
 
             // Inject new div to contain widget or use an existing div with an ID
-            //$("body").append('<' + 'div id="myDivWidgetAutolevel"><' + '/div>');
+            $("body").append('<' + 'div id="com-chilipeppr-ws-imagestitch"><' + '/div>');
             
             chilipeppr.load(
                 "#com-chilipeppr-ws-imagestitch",
