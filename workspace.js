@@ -602,7 +602,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                 function() {
                     // Callback after widget loaded into #myDivWidgetAutolevel
                     // Now use require.js to get reference to instantiated widget
-                    cprequire(
+                    prequire(
                         ["inline:com-chilipeppr-widget-imagestitch"], // the id you gave your widget
                         function(imagestitch) {
                             // Callback that is passed reference to the newly loaded widget
