@@ -602,12 +602,12 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                 function() {
                     // Callback after widget loaded into #myDivWidgetAutolevel
                     // Now use require.js to get reference to instantiated widget
-                    prequire(
+                    cprequire(
                         ["inline:com-chilipeppr-widget-autolevel"], // the id you gave your widget
-                        function(myObjWidgetAutolevel) {
+                        function(imagestitch) {
                             // Callback that is passed reference to the newly loaded widget
-                            console.log("Widget / Auto-Level just got loaded.", myObjWidgetAutolevel);
-                            myObjWidgetAutolevel.init();
+                            console.log("Widget / Auto-Level just got loaded.", imagestitch);
+                            imagestitch.init();
                         // setup toggle button
                         var isBtn = $('#com-chilipeppr-ws-menu .imagestitch-button');
                         var isDiv = $('#com-chilipeppr-ws-imagestitch');
