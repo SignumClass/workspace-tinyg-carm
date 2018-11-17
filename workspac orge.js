@@ -1,5 +1,5 @@
 /* global cpdefine chilipeppr cprequire */
-cprequire_test(["inline:com-chilipeppr-workspace-tinyg-carm"], function(ws) {
+cprequire_test(["inline:com-chilipeppr-workspace-carm"], function(ws) {
 
     console.log("initting workspace");
 
@@ -27,7 +27,7 @@ cprequire_test(["inline:com-chilipeppr-workspace-tinyg-carm"], function(ws) {
     ws.init();
 
     // Do some niceties for testing like margins on widget and title for browser
-    $('title').html("Tinyg Workspace Carm");
+    $('title').html("Tinyg Workspace");
     $('body').css('padding', '10px');
 
 } /*end_test*/ );
@@ -592,45 +592,6 @@ cpdefine("inline:com-chilipeppr-workspace-carm", ["chilipeppr_ready"], function(
                 }); //End Auto-Leveller
 
 
-
-            // Inject new div to contain widget or use an existing div with an ID
-            //$("body").append('<' + 'div id="com-chilipeppr-ws-imagestitch"><' + '/div>');
-            
-            chilipeppr.load(
-                "#com-chilipeppr-ws-imagestitch",
-                "http://raw.githubusercontent.com/SignumClass/widget-imagestitch/master/auto-generated-widget.html",
-                function() {
-                    // Callback after widget loaded into #myDivWidgetAutolevel
-                    // Now use require.js to get reference to instantiated widget
-                    require(
-                        ["inline:com-chilipeppr-widget-imagestitch"], // the id you gave your widget
-                        function(imagestitch) {
-                            // Callback that is passed reference to the newly loaded widget
-                            
-                            imagestitch.init();
-                            console.log("Widget / Image Stitch just got loaded.", imagestitch);
-                        // setup toggle button
-                        var isBtn = $('#com-chilipeppr-ws-menu .imagestitch-button');
-                        var isDiv = $('#com-chilipeppr-ws-imagestitch');
-                        isBtn.click(function() {
-                            if (isDiv.hasClass("hidden")) {
-                                // unhide
-                                isDiv.removeClass("hidden");
-                                isBtn.addClass("active");
-                                imagestitch.onDisplay();
-                            }
-                            else {
-                                isDiv.addClass("hidden");
-                                isBtn.removeClass("active");
-                                imagestitch.onUndisplay();
-                            }
-                            $(window).trigger('resize');
-
-                        });
-                    });
-                });
-    
-
             // Macro
             // com-chilipeppr-ws-macro
             chilipeppr.load(
@@ -691,7 +652,7 @@ cpdefine("inline:com-chilipeppr-workspace-carm", ["chilipeppr_ready"], function(
             
             // Laser Solder
             // com-chilipeppr-ws-jscut
-            
+            /*
             chilipeppr.load(
                 "#com-chilipeppr-ws-lasersolder",
                 "http://fiddle.jshell.net/chilipeppr/xuu785yz/show/light/",
@@ -719,7 +680,7 @@ cpdefine("inline:com-chilipeppr-workspace-carm", ["chilipeppr_ready"], function(
                         });
                     });
                 }); //End Laser Solder
-                
+                */
 
             // Eagle BRD Import
             // com-chilipeppr-widget-eagle
@@ -1427,7 +1388,7 @@ cpdefine("inline:com-chilipeppr-workspace-carm", ["chilipeppr_ready"], function(
 
             /* For testing. Load RPM Sensor */
             // com-chilipeppr-ws-rpmsensor
-            
+            /*
             chilipeppr.load(
               "#com-chilipeppr-ws-rpmsensor",
               "http://raw.githubusercontent.com/chilipeppr/widget-rpmsensor/master/auto-generated-widget.html",
@@ -1444,10 +1405,10 @@ cpdefine("inline:com-chilipeppr-workspace-carm", ["chilipeppr_ready"], function(
                 );
               }
             );
-            
+            */
 
         },
         //end loadWidgets
 
-    };
+    }
 });
