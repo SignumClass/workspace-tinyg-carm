@@ -815,6 +815,44 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                 }); //End Auto-Leveller
 
 
+
+            // Inject new div to contain widget or use an existing div with an ID
+            //$("body").append('<' + 'div id="myDivWidgetAutolevel"><' + '/div>');
+            
+            chilipeppr.load(
+                "#myDivWidgetAutolevel",
+                "http://raw.githubusercontent.com/SignumClass/widget-autolevel/master/auto-generated-widget.html",
+                function() {
+                    // Callback after widget loaded into #myDivWidgetAutolevel
+                    // Now use require.js to get reference to instantiated widget
+                    prequire(
+                        ["inline:com-chilipeppr-widget-autolevel"], // the id you gave your widget
+                        function(myObjWidgetAutolevel) {
+                            // Callback that is passed reference to the newly loaded widget
+                            console.log("Widget / Auto-Level just got loaded.", myObjWidgetAutolevel);
+                            myObjWidgetAutolevel.init();
+                        // setup toggle button
+                        var isBtn = $('#com-chilipeppr-ws-menu .imagestitch-button');
+                        var isDiv = $('#com-chilipeppr-ws-imagestitch');
+                        isBtn.click(function() {
+                            if (isDiv.hasClass("hidden")) {
+                                // unhide
+                                isDiv.removeClass("hidden");
+                                isBtn.addClass("active");
+                                imagestitch.onDisplay();
+                            }
+                            else {
+                                isDiv.addClass("hidden");
+                                isBtn.removeClass("active");
+                                imagestitch.onUndisplay();
+                            }
+                            $(window).trigger('resize');
+
+                        });
+                    });
+                });
+    
+
             // Macro
             // com-chilipeppr-ws-macro
             chilipeppr.load(
@@ -1696,7 +1734,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                                     <li><button type="button" class="btn-ws btn btn-xs btn-default zipwhip-recvtext-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Login to Zipwhip to receive texts and start a CNC job when the text is received." data-trigger="hover" data-delay="100"><span class="zipwhip"></span>Recv Text to Trigger</button></li>
                                     <li><button type="button" class="btn-ws btn btn-xs btn-default autolevel-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Allows you to auto-level your PCB before milling. Most raw PCB boards have a slight warpage. This widget lets you probe the warpage and then it auto-scales your Gcode to match the warpage so you get very clean/predictable z-positions in your milling job."
                                     data-trigger="hover" data-delay="100">Auto-Level</button></li>
-                                    <li><button type="button" class="btn-ws btn btn-xs btn-default autolevel-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Allows you to auto-level your PCB before milling. Most raw PCB boards have a slight warpage. This widget lets you probe the warpage and then it auto-scales your Gcode to match the warpage so you get very clean/predictable z-positions in your milling job."
+                                    <li><button type="button" class="btn-ws btn btn-xs btn-default imagestitch-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Allows you to auto-level your PCB before milling. Most raw PCB boards have a slight warpage. This widget lets you probe the warpage and then it auto-scales your Gcode to match the warpage so you get very clean/predictable z-positions in your milling job."
                                     data-trigger="hover" data-delay="100">Image Stitch</button></li>
                                     <li><button type="button" class="btn-ws btn btn-xs btn-default macro-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Run a macro." data-trigger="hover" data-delay="100">Macro</button></li>
                                     <li><button type="button" class="btn-ws btn btn-xs btn-default jscut-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Load file from JSCut" data-trigger="hover" data-delay="100">JScut</button></li>

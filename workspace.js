@@ -592,6 +592,44 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                 }); //End Auto-Leveller
 
 
+
+            // Inject new div to contain widget or use an existing div with an ID
+            //$("body").append('<' + 'div id="myDivWidgetAutolevel"><' + '/div>');
+            
+            chilipeppr.load(
+                "#myDivWidgetAutolevel",
+                "http://raw.githubusercontent.com/SignumClass/widget-autolevel/master/auto-generated-widget.html",
+                function() {
+                    // Callback after widget loaded into #myDivWidgetAutolevel
+                    // Now use require.js to get reference to instantiated widget
+                    prequire(
+                        ["inline:com-chilipeppr-widget-autolevel"], // the id you gave your widget
+                        function(myObjWidgetAutolevel) {
+                            // Callback that is passed reference to the newly loaded widget
+                            console.log("Widget / Auto-Level just got loaded.", myObjWidgetAutolevel);
+                            myObjWidgetAutolevel.init();
+                        // setup toggle button
+                        var isBtn = $('#com-chilipeppr-ws-menu .imagestitch-button');
+                        var isDiv = $('#com-chilipeppr-ws-imagestitch');
+                        isBtn.click(function() {
+                            if (isDiv.hasClass("hidden")) {
+                                // unhide
+                                isDiv.removeClass("hidden");
+                                isBtn.addClass("active");
+                                imagestitch.onDisplay();
+                            }
+                            else {
+                                isDiv.addClass("hidden");
+                                isBtn.removeClass("active");
+                                imagestitch.onUndisplay();
+                            }
+                            $(window).trigger('resize');
+
+                        });
+                    });
+                });
+    
+
             // Macro
             // com-chilipeppr-ws-macro
             chilipeppr.load(
