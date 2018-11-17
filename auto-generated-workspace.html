@@ -820,13 +820,13 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
             //$("body").append('<' + 'div id="myDivWidgetAutolevel"><' + '/div>');
             
             chilipeppr.load(
-                "#com-chilipeppr-ws-autolevel",
+                "#com-chilipeppr-ws-imagestitch",
                 "http://raw.githubusercontent.com/SignumClass/widget-autolevel/master/auto-generated-widget.html",
                 function() {
                     // Callback after widget loaded into #myDivWidgetAutolevel
                     // Now use require.js to get reference to instantiated widget
                     cprequire(
-                        ["inline:com-chilipeppr-widget-autolevel"], // the id you gave your widget
+                        ["inline:com-chilipeppr-widget-imagestitch"], // the id you gave your widget
                         function(imagestitch) {
                             // Callback that is passed reference to the newly loaded widget
                             console.log("Widget / Auto-Level just got loaded.", imagestitch);
