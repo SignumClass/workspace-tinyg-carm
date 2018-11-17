@@ -817,7 +817,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
 
 
             // Inject new div to contain widget or use an existing div with an ID
-            $("body").append('<' + 'div id="com-chilipeppr-ws-imagestitch"><' + '/div>');
+            //$("body").append('<' + 'div id="com-chilipeppr-ws-imagestitch"><' + '/div>');
             
             chilipeppr.load(
                 "#com-chilipeppr-ws-imagestitch",
@@ -825,12 +825,13 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                 function() {
                     // Callback after widget loaded into #myDivWidgetAutolevel
                     // Now use require.js to get reference to instantiated widget
-                    prequire(
+                    require(
                         ["inline:com-chilipeppr-widget-imagestitch"], // the id you gave your widget
                         function(imagestitch) {
                             // Callback that is passed reference to the newly loaded widget
-                            console.log("Widget / Auto-Level just got loaded.", imagestitch);
+                            
                             imagestitch.init();
+                            console.log("Widget / Image Stitch just got loaded.", imagestitch);
                         // setup toggle button
                         var isBtn = $('#com-chilipeppr-ws-menu .imagestitch-button');
                         var isDiv = $('#com-chilipeppr-ws-imagestitch');
